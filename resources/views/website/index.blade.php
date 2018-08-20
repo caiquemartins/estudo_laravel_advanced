@@ -9,23 +9,22 @@
 
                 <div class="card-body">
                     <ul class="list-group">
-                        @foreach ($articles as $article)
+                        @foreach ($websites as $website)
                             <li class="list-group-item">
                                 <h4>
                                     <p>
-                                        {{$article->title}}
-                                    </p>
-                                    <p style="color:red">
-                                        by {{$article->owner->name}}
-                                    </p>
-                                    <p>
-                                        @foreach ($article->websites as $website)
-                                            <a href="{{$website->url}}">{{$website->url}}</a>
-                                            <br>
-                                        @endforeach
+                                        Os artigos abaixo são da url
+                                        <a href="{{$website->url}}"> {{$website->url}} </a>
                                     </p>
                                 </h4>
-                                <p>{{$article->body}}</p>
+
+                                <p>
+                                    @foreach ($website->articles as $article)
+                                        <p>
+                                            {{$article->title}}
+                                        </p>
+                                    @endforeach
+                                </p>
                             </li>
                         @endforeach
                     </ul>
